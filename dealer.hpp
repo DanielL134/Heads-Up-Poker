@@ -12,6 +12,7 @@ using namespace std;
 
 
 void dealCards(Player& comp, Player& person){
+
   srand(time(NULL));
   int deckIndex = rand() % deck.size();
   comp.setFirstCard(deck[deckIndex]);
@@ -29,6 +30,27 @@ void dealCards(Player& comp, Player& person){
   person.setSecondCard(deck[deckIndex]);
   deck.erase(deck.begin()+deckIndex);
           
+}
+
+void theFlop(string& flopCard1, string& flopCard2, string& flopCard3){
+
+  //Burn card
+  int deckIndex = rand() % deck.size();
+  deck.erase(deck.begin()+deckIndex);
+  
+  //deal flop
+  deckIndex = rand() % deck.size();
+  flopCard1 = deck[deckIndex];
+  deck.erase(deck.begin()+deckIndex);
+  
+  deckIndex = rand() % deck.size();
+  flopCard2 = deck[deckIndex];
+  deck.erase(deck.begin()+deckIndex);
+
+  deckIndex = rand() % deck.size();
+  flopCard3 = deck[deckIndex];
+  deck.erase(deck.begin()+deckIndex);
+  
 }
 
 #endif

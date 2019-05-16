@@ -10,7 +10,9 @@
 #include "deck.hpp"
 #include "dealer.hpp"
 
+//In order to compile then run
 //g++ -std=c++11 heads_up_poker.cpp -o heads_up_poker
+//./heads_up_poker
 
 using namespace std;
 
@@ -45,6 +47,10 @@ int main() {
   dealCards(computerPlayer, player1);
   cout << "Computer's first and second card: " << computerPlayer.firstCard << " and " << computerPlayer.secondCard << endl;
   cout << player1.playerName << "'s first and second card: " << player1.firstCard << " and " << player1.secondCard << endl;
+  
+  string flopCard1, flopCard2, flopCard3;
+  theFlop(flopCard1, flopCard2, flopCard3);
+  cout << "Flop: " << flopCard1 << " | " << flopCard2 << " | " << flopCard3 << " | " << endl;
   
   //Prints entire deck
   /*for (auto i=deck.begin(); i != deck.end(); i++) {
