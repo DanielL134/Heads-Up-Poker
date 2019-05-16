@@ -53,4 +53,20 @@ void theFlop(string& flopCard1, string& flopCard2, string& flopCard3){
   
 }
 
+void theTurn(string& turnCard) {
+
+  int deckIndex = rand() % deck.size();
+  turnCard = deck[deckIndex];
+  deck.erase(deck.begin()+deckIndex);
+
+}
+
+void theRiver(string& riverCard) {
+
+  int deckIndex = rand() % deck.size();
+  riverCard = deck[deckIndex];
+  deck.erase(deck.begin()+deckIndex);
+
+}
+
 #endif

@@ -41,17 +41,37 @@ int main() {
   cout << "Player1: " << player1.playerName << endl;
   player1.buyIn();
   cout << "Chip Count: " << player1.chipCount << endl;
-
-  createDeck();  
-  
-  dealCards(computerPlayer, player1);
-  cout << "Computer's first and second card: " << computerPlayer.firstCard << " and " << computerPlayer.secondCard << endl;
-  cout << player1.playerName << "'s first and second card: " << player1.firstCard << " and " << player1.secondCard << endl;
-  
-  string flopCard1, flopCard2, flopCard3;
-  theFlop(flopCard1, flopCard2, flopCard3);
-  cout << "Flop: " << flopCard1 << " | " << flopCard2 << " | " << flopCard3 << " | " << endl;
-  
+  string quitOrPlay;
+  while(quitOrPlay != "q") {
+    //quitOrPlay = "";
+    createDeck();  
+    
+    //Deal cards to computer and player objects
+    dealCards(computerPlayer, player1);
+    cout << "Computer's first and second card: " << computerPlayer.firstCard << " and " << computerPlayer.secondCard << endl;
+    cout << player1.playerName << "'s first and second card: " << player1.firstCard << " and " << player1.secondCard << endl;
+    
+    //Get the flop from dealer and display it
+    string flopCard1, flopCard2, flopCard3;
+    theFlop(flopCard1, flopCard2, flopCard3);
+    cout << "Flop: " << flopCard1 << " | " << flopCard2 << " | " << flopCard3 << " | " << endl;
+    
+    //Get the turn card and display along with flop
+    string turnCard;
+    theTurn(turnCard);
+    cout << "Flop: " << flopCard1 << " | " << flopCard2 << " | " << flopCard3 << " | Turn: " << turnCard << endl; 
+    
+    //Get the river card and display it along with the turn and flop
+    string riverCard;
+    theRiver(riverCard);
+    cout << "Flop: " << flopCard1 << " | " << flopCard2 << " | " << flopCard3 << " | Turn: " << turnCard << " | River: " << riverCard << endl;
+    
+    //ask to quit or play
+    cout << "quitOrPlay = " << quitOrPlay << endl;
+    cout << "Type q to quit or p to redeal: " << endl;
+    cin >> quitOrPlay;
+    
+  }
   //Prints entire deck
   /*for (auto i=deck.begin(); i != deck.end(); i++) {
     cout << *i << endl;
