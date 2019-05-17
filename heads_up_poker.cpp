@@ -34,7 +34,8 @@ int main() {
   player1.setPlayerName(name);
   cout << player1.playerName << " has bought in for 500 chips." << endl;
   */
-  
+  int pot = 0;
+  int pingPongBuf = 0;
   
   //test purposes 
   player1.setPlayerName("Daniel");
@@ -43,12 +44,31 @@ int main() {
   cout << "Chip Count: " << player1.chipCount << endl;
   string quitOrPlay;
   while(quitOrPlay != "q") {
-    //quitOrPlay = "";
-    createDeck();  
     
+    //set up deck and big blind and small blind
+    pot = 0;
+    createDeck();  
+    if(pingPongBuf) {
+      computerPlayer.chipCount = computerPlayer.chipCount - BIG_BLIND;
+      player1.chipCount = player1.chipCount - SMALL_BLIND;
+      pot = 30;
+    }
+    else {
+      computerPlayer.chipCount = computerPlayer.chipCount - SMALL_BLIND;
+      player1.chipCount = player1.chipCount - BIG_BLIND;
+      pot = 30;
+    }
+    
+    cout << player1.playerName << "'s Chip Count: " << player1.chipCount << endl;
+    cout << computerPlayer.playerName << "'s Chip Count: " << computerPlayer.chipCount << endl;
+    //Preflop
+    //while(decision) {
+    
+    
+    //}
     //Deal cards to computer and player objects
     dealCards(computerPlayer, player1);
-    cout << "Computer's first and second card: " << computerPlayer.firstCard << " and " << computerPlayer.secondCard << endl;
+    //cout << "Computer's first and second card: " << computerPlayer.firstCard << " and " << computerPlayer.secondCard << endl;
     cout << player1.playerName << "'s first and second card: " << player1.firstCard << " and " << player1.secondCard << endl;
     
     //Get the flop from dealer and display it
@@ -70,6 +90,14 @@ int main() {
     cout << "quitOrPlay = " << quitOrPlay << endl;
     cout << "Type q to quit or p to redeal: " << endl;
     cin >> quitOrPlay;
+    
+    //ping pong buffer switch
+    if(pingPongBuf) {
+      pingPongBuf = 0;
+    }
+    else {
+      pingPongBuf = 1;
+    }
     
   }
   //Prints entire deck
