@@ -10,10 +10,6 @@
 #include "deck.hpp"
 #include "dealer.hpp"
 
-//In order to compile then run
-//g++ -std=c++11 heads_up_poker.cpp -o heads_up_poker
-//./heads_up_poker
-
 using namespace std;
 
 int main() {
@@ -87,7 +83,6 @@ int main() {
     cout << "Flop: " << flopCard1 << " | " << flopCard2 << " | " << flopCard3 << " | Turn: " << turnCard << " | River: " << riverCard << endl;
     
     //ask to quit or play
-    cout << "quitOrPlay = " << quitOrPlay << endl;
     cout << "Type q to quit or p to redeal: " << endl;
     cin >> quitOrPlay;
     
@@ -99,11 +94,15 @@ int main() {
       pingPongBuf = 1;
     }
     
+    for (int i = 0; i < valAndSuit.size(); i++) {
+      delete[] valAndSuit[i];
+    }
+    
   }
   //Prints entire deck
   /*for (auto i=deck.begin(); i != deck.end(); i++) {
     cout << *i << endl;
-  }*/
+    }*/
 
 
   return 0;
