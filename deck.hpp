@@ -209,11 +209,11 @@ void createDeck(){
       valAndSuit[39 +(i-2)][1] = tmpSuit;
     }
   }
-  
-  for (int i = 0; i < valAndSuit.size(); i++) {
-    cout << "Value: " << valAndSuit[i][0] << endl;
-    cout << "Suit: " << valAndSuit[i][1] << endl;
-  }
+  //prints the val and suit of each card in deck
+//  for (int i = 0; i < valAndSuit.size(); i++) {
+//    cout << "Value: " << valAndSuit[i][0] << endl;
+//    cout << "Suit: " << valAndSuit[i][1] << endl;
+//  }
 }
 
 

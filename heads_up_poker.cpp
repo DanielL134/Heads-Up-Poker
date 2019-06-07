@@ -9,6 +9,7 @@
 #include "macros.hpp"
 #include "deck.hpp"
 #include "dealer.hpp"
+#include "hand_value.hpp"
 
 using namespace std;
 
@@ -66,21 +67,37 @@ int main() {
     dealCards(computerPlayer, player1);
     //cout << "Computer's first and second card: " << computerPlayer.firstCard << " and " << computerPlayer.secondCard << endl;
     cout << player1.playerName << "'s first and second card: " << player1.firstCard << " and " << player1.secondCard << endl;
+//    cout << "First card value: " << player1.firstCardValSuit[0] << " Suit: " << player1.firstCardValSuit[1] << endl;
+//    cout << "Second card value: " << player1.secondCardValSuit[0] << " Suit: " << player1.secondCardValSuit[1] << endl;
     
     //Get the flop from dealer and display it
     string flopCard1, flopCard2, flopCard3;
-    theFlop(flopCard1, flopCard2, flopCard3);
+    int flopCard1ValSuit[2], flopCard2ValSuit[2], flopCard3ValSuit[2];
+    theFlop(flopCard1, flopCard2, flopCard3, flopCard1ValSuit, flopCard2ValSuit, flopCard3ValSuit);
     cout << "Flop: " << flopCard1 << " | " << flopCard2 << " | " << flopCard3 << " | " << endl;
+    cout << "Flop value: " << flopCard1ValSuit[0] << " | " << flopCard2ValSuit[0] << " | " << flopCard3ValSuit[0] << " | " << endl;
+    cout << "Flop suit: " << flopCard1ValSuit[1] << " | " << flopCard2ValSuit[1] << " | " << flopCard3ValSuit[1] << " | " << endl;
     
     //Get the turn card and display along with flop
     string turnCard;
-    theTurn(turnCard);
+    int turnCardValSuit[2];
+    theTurn(turnCard, turnCardValSuit);
     cout << "Flop: " << flopCard1 << " | " << flopCard2 << " | " << flopCard3 << " | Turn: " << turnCard << endl; 
+    cout << "Flop value: " << flopCard1ValSuit[0] << " | " << flopCard2ValSuit[0] << " | " << flopCard3ValSuit[0] << " | Turn value: " << turnCardValSuit[0] << endl;
+    cout << "Flop suit: " << flopCard1ValSuit[1] << " | " << flopCard2ValSuit[1] << " | " << flopCard3ValSuit[1] << " | Turn suit: " << turnCardValSuit[1] << endl;
     
     //Get the river card and display it along with the turn and flop
     string riverCard;
-    theRiver(riverCard);
+    int riverCardValSuit[2];
+    theRiver(riverCard, riverCardValSuit);
     cout << "Flop: " << flopCard1 << " | " << flopCard2 << " | " << flopCard3 << " | Turn: " << turnCard << " | River: " << riverCard << endl;
+    cout << "Flop value: " << flopCard1ValSuit[0] << " | " << flopCard2ValSuit[0] << " | " << flopCard3ValSuit[0] << " | Turn value: " << turnCardValSuit[0] << " | River value: " << riverCardValSuit[0] << endl;
+    cout << "Flop suit: " << flopCard1ValSuit[1] << " | " << flopCard2ValSuit[1] << " | " << flopCard3ValSuit[1] << " | Turn suit: " << turnCardValSuit[1] << " | River suit: " << riverCardValSuit[1] << endl;
+    
+    //time to see who wins
+    
+    
+    
     
     //ask to quit or play
     cout << "Type q to quit or p to redeal: " << endl;
